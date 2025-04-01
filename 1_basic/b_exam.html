@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="common.js"></script>
+    <script type="text/javascript">
+      function kosa() {
+        alert("kosa");
+      }
+    </script>
+  </head>
+  <body>
+    <button value="button" onclick="kosa()">버튼</button>
+    <input type="button" value="button" onclick="kosa2()" />
+    <!-- html에 대한 실행 
+    html파싱 후 js실행하기 위해서 마지막에 쓰는 경향이 있음.  
+    -->
+    <script>
+      kosa2();
+    </script>
+  </body>
+</html>
