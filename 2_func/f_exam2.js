@@ -45,3 +45,55 @@ console.log(add(10, 20));
 const numbers = [1, 2, 3, 4, 5];
 const result = numbers.map((num) => num * num);
 console.log(result);
+
+// 성적관리 예제
+const names = ["김길동", "박길동", "조길동", "한길동"];
+const scores = [88, 72, 95, 64];
+//평균
+const avrg = (score) => {
+  let sum = 0;
+  score.map((num) => {
+    sum += num;
+    return sum;
+  });
+  console.log(sum);
+  return "평균점수: " + sum / score.length;
+};
+console.log(avrg(scores));
+// 최고점수 학생
+const top = (score, name) => {
+  let max = 0;
+  score.map((score) => {
+    if (score > max) max = score;
+  });
+  let idx = score.indexOf(max);
+  console.log(idx);
+  console.log(name[idx]);
+  return name[idx];
+  //   for (let i = 0; i < score.length; i++) {
+  //     let max = score[0];
+  //     if (score[i] > max) {
+  //       max = score[i];
+  //       //   console.log(name[i]);
+  //       //   console.log("최고점", max);
+  //       return name[i];
+  //     }
+  //   }
+};
+console.log(top(scores, names));
+// 합격자 목록(80점이상)
+
+const pass = (score, name) => {
+  let passList = [];
+  for (let i = 0; i < score.length; i++) {
+    if (score[i] >= 80) {
+      //   console.log(score[i]);
+      passList.push(name[i]);
+      //   console.log(passList);
+      //   console.log("점수", score[i]);
+    }
+  }
+  return passList;
+};
+
+console.log(pass(scores, names));
