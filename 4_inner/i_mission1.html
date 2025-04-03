@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      //  <!-- 이미지 렌덤하게 출력하게 하는 예제 -->
+
+      //난수구하기
+      //const n = Math.floor(Math.random() * 7);
+      const n = Math.floor(Math.random() * 7 + 1);
+      //화면을 다 그리고 함수 실행
+      //let arr = ["pic1", "pic2", "pic3", "pic4", "pic4", "pic6", "pic7"];
+      let arr = [];
+      for (let i = 0; i < 7; i++) {
+        arr[i] = "../images/pic" + (i + 1) + ".jpg";
+      }
+      window.onload = function () {
+        const img = document.getElementById("img");
+        //img.src = `../images/${arr[n]}.jpg`;
+        //img.src = `../images/pic${n}.jpg`;
+        img.src = arr[n];
+      };
+    </script>
+  </head>
+  <body>
+    <img id="img" src="" alt="" />
+  </body>
+</html>

@@ -7,9 +7,21 @@
   1. `var`로 선언된 변수가 for문 내부/외부에서 어떻게 동작하는지 출력
   2. `let`으로 선언된 변수가 for문 내부/외부에서 어떻게 동작하는지 출력
 - 결과를 보고 간단히 주석으로 차이점을 설명해봅니다.
-
 */
 
+// var i = 100;
+// for (var i = 0; i < 10; i++) {
+//   console.log(i);
+// }
+
+// console.log(i); //10
+
+// let i = 100;
+// for (let i = 0; i < 10; i++) {
+//   console.log(i);
+// }
+
+// console.log(i); //100
 // ## 2. (중) 코드 작성 문제
 
 // ### 문제
@@ -20,18 +32,20 @@
 //    - 내부 함수를 반환(return)하여, 이 내부 함수가 호출될 때마다 `count`가 1씩 증가한 값을 콘솔에 출력하도록 만드세요.
 // 2. `makeCounter` 함수를 이용해 `counter1`, `counter2`를 각각 생성하여, 두 카운터가 서로 독립적으로 증가하는지 확인해보세요.
 
-// ### 예시 흐름
-// ```js
-// const counter1 = makeCounter();
-// counter1(); // "Count: 1"
-// counter1(); // "Count: 2"
-
-// const counter2 = makeCounter();
-// counter2(); // "Count: 1"
-// ```
-
-// ---
-
+const makeCounter = () => {
+  let counter = 0;
+  let innerFunc = function () {
+    console.log(counter++);
+  };
+  return innerFunc;
+};
+const counter1 = makeCounter();
+const counter2 = makeCounter();
+counter1();
+counter1();
+counter2();
+counter1();
+counter2();
 // ## 3. (상) 코드 작성 문제
 
 // ### 문제
