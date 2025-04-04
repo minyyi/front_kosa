@@ -23,30 +23,25 @@
       지불하실 금액은 : <input type="text" name="result" id="total" value="" />
     </form>
     <script type="text/javascript">
+      let total = 0;
+      let pre = 0;
       function calc() {
         //this => 선택한 input
         //type => checkbox/radio => 식별 => 연산
         const obj = this;
-        console.log(obj.checked);
-        console.log(this.value);
 
-        let sum = 0;
-        if (obj.checked == true) {
-          sum += Number(this.value);
-          console.log(typeof Number(this.value));
-          console.log("SUM: ", sum);
-          console.log("this", this.value);
-          document.input.total = sum;
-          console.log("window", document.input.total);
-        } else if (obj.checked !== true) {
-          console.log("false", sum);
-          sum -= Number(this.value);
+        if (obj.type === "checkbox") {
+          if (obj.checked == true) {
+            total += parseInt(obj.value);
+          } else {
+            total -= parseInt(obj.value);
+          }
+        } else {
+          total -= pre;
+          total += parseInt(obj.value);
+          pre = parseInt(obj.value);
         }
-        console.log("SUM2: ", sum);
-
-        //
-        // value
-        //alert(obj.value);
+        document.fmt.result.value = total;
       }
       const inputs = document.getElementsByTagName("input");
       for (let i = 0; i < inputs.length; i++) {

@@ -27,10 +27,18 @@
 // console.log(result);
 
 // email check!
-const re = /^[a-zA-Z]+\w*@[a-zA-Z]{3,5}.[a-zA-Z]{2,3}$/;
+// const re = /^[a-zA-Z]+\w*@[a-zA-Z]{3,5}.[a-zA-Z]{2,3}$/;
+const re = /^\D\w+\w@\w+.\w{2,3}$/gi;
 const str = "ymy0613@gmail.com";
 console.log(re.test("ymy0613@gmail.com"));
 console.log(re.test("0613@gmail.com"));
 console.log(re.test("ymy0613gmail.com"));
 console.log(re.test("ymy0613@gl.com"));
 console.log(re.test("ymy0613@gmail.comsdfgsdf"));
+const result = re.test(str);
+
+if (result) {
+  console.log("정상");
+} else {
+  console.log("비정상");
+}

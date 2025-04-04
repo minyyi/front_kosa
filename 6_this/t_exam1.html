@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      //일반함수 안에서 this는 window객체이다
+      let data = 10;
+      function func() {
+        this.data = 20;
+        data = 30;
+        console.log("1. data: " + data); // var:30 let : 30
+        console.log("2. this.data: " + this.data); //var:30 let :20
+        console.log("2. window.data: " + window.data); //var:30 let :20
+      }
+      func();
+    </script>
+  </head>
+  <body></body>
+</html>

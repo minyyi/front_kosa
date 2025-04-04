@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      // 리터럴객체, 생성자함수, 프로토타입 안에서 this는 해당 객체
+      let data = 10;
+      function Myclass() {
+        this.data = 0;
+      }
+      Myclass.prototype.method1 = function () {
+        this.data = 20;
+        data = 30;
+        console.log("1. data: " + data); // var:30 let : 30
+        console.log("2. this.data: " + this.data); //var:20 let :20
+        console.log("2. window.data: " + window.data); //var:30 let :undefined
+      };
+      const m1 = new Myclass();
+      m1.method1();
+      <!-- Myclass.prototype.method1(); -->
+    </script>
+  </head>
+  <body></body>
+</html>

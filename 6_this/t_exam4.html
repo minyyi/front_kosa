@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      var data = "Global data";
+
+      var obj1 = { data: "obj1 data" };
+      var obj2 = { data: "obj2 data" };
+
+      function func() {
+        console.log(this.data);
+      }
+
+      func.call(obj1); // call(): 파라미터로 넘겨주는 값에 따라 this값을 정하겠다.
+      func.call(); //Global data
+      func.apply(obj2); //call() 과 비슷한 함수
+      func(); //Global data
+    </script>
+  </head>
+  <body></body>
+</html>
